@@ -25,12 +25,8 @@ func fizzBuzzCuckooClock(_ time: String) -> String {
     
     switch minute! {
     case 0:
-        if hour! % 12 == 0 {
-            return "Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo"
-        } else {
-            let result = String(repeating: "Cuckoo ", count: hour!%12)
-            return result.substring(to: result.index(result.endIndex, offsetBy: -1))
-        }
+        let result = String(repeating: "Cuckoo ", count: ((hour! + 11) % 12 + 1))
+        return result.substring(to: result.index(result.endIndex, offsetBy: -1))
     case 30:
         return "Cuckoo"
     case 15, 45:
